@@ -1,0 +1,402 @@
+/* ======================== */
+/* RESET & BASE STYLES      */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scrollbar-gutter: stable;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #0a0a0f;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* ======================== */
+/* POLICE RETRO */
+h1,
+h2,
+h3 {
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    color: #00f0ff;
+    text-shadow: 0 0 5px #00f0ff, 0 0 10px #8a2be2;
+}
+
+/* ======================== */
+/* HEADER */
+header {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(90deg, #00f0ff, #8a2be2);
+}
+
+header p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #ffffffcc;
+}
+
+/* ======================== */
+/* NAVIGATION */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* centre le bloc central */
+    position: sticky;
+    top: 0;
+    background-color: #111118;
+    padding: 15px 20px;
+    border-bottom: 1px solid #00f0ff33;
+    z-index: 1000;
+}
+
+/* Desktop : home-link à gauche */
+.home-link {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-center {
+    display: flex;
+    gap: 40px;
+    margin: 0 auto;
+}
+
+nav a {
+    color: #00f0ff;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+nav a:hover {
+    color: white;
+    text-shadow: 0 0 10px #00f0ff;
+}
+
+nav .nav-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+/* ======================== */
+/* RESPONSIVE NAVIGATION */
+/* ======================== */
+
+.menu-toggle {
+    display: none;
+}
+
+.menu-button {
+    display: none;
+}
+
+/* VERSION MOBILE */
+/* Mobile : recentrer home-link et faire menu vertical */
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 10px 20px;
+    }
+
+    /* Burger à droite */
+    .menu-button {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.8rem;
+        color: #00f0ff;
+        cursor: pointer;
+    }
+
+    /* Nav links vertical */
+    .nav-center {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        margin-top: 10px;
+    }
+
+    .menu-toggle:checked ~ .nav-center {
+        max-height: 300px;
+    }
+
+    /* Recentre le bouton Accueil en mobile et enlève absolute */
+    .home-link {
+        position: static;
+        transform: none;
+        margin-bottom: 15px;
+    }
+}
+
+/* ======================== */
+/* HERO SECTION */
+.hero {
+    padding: 20px 20px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    color: #00f0ff;
+    text-shadow: 0 0 5px #00f0ff, 0 0 10px #8a2be2;
+}
+
+/* ======================== */
+/* À PROPOS */
+.about-me {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.about-me h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #00f0ff;
+    text-shadow: 0 0 5px #00f0ff, 0 0 10px #8a2be2;
+}
+
+.about-me p {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: #ffffffcc;
+}
+
+/* ======================== */
+/* CARTES */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.card {
+    background-color: #141420;
+    border: 1px solid #00f0ff55;
+    padding: 25px;
+    border-radius: 12px;
+    width: 300px;
+    text-align: center;
+    transition: 0.4s;
+    box-shadow: 0 0 10px #00f0ff22;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #141420;
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.card h3 {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(90deg, #00f0ff, #8a2be2);
+    padding: 15px;
+    margin: -25px -25px 20px -25px;
+    border-radius: 12px 12px 0 0;
+    font-size: 1.3rem;
+    text-shadow: 0 0 5px #000, 0 0 10px #0a0a0f;
+}
+
+.card h2 {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-shadow: 0 0 5px #000, 0 0 10px #0a0a0f;
+}
+
+.card p {
+    position: relative;
+    z-index: 1;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px #00f0ff, 0 0 50px #8a2be2;
+}
+
+.card-row {
+    display: flex;
+    justify-content: space-between;
+    /* gauche / droite */
+    margin: 15px 0;
+}
+
+.card-row .left {
+    text-align: left;
+}
+
+.card-row .right {
+    text-align: right;
+}
+
+.card-auto {
+    background-color: #141420;
+    border: 1px solid #00f0ff55;
+    padding: 25px;
+    border-radius: 12px;
+    width: fit-content;
+    text-align: center;
+    transition: 0.4s;
+    box-shadow: 0 0 10px #00f0ff22;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: 90%;
+    flex: 0 0 auto;
+}
+
+.card-auto h3 {
+    background: linear-gradient(90deg, #00f0ff, #8a2be2);
+    padding: 15px;
+    margin: -25px -25px 20px -25px;
+    border-radius: 12px 12px 0 0;
+    font-size: 1.3rem;
+    text-shadow: 0 0 5px #000, 0 0 10px #0a0a0f;
+    position: relative;
+    z-index: 1;
+}
+
+.card-auto .left {
+    text-align: left;
+}
+
+.card-auto:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px #00f0ff, 0 0 50px #8a2be2;
+}
+/* ======================== *//* ======================== *//* ======================== */
+/* ======================== */
+/* INPUT TEMPS */
+
+.time-inputs {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin: 10px 0;
+}
+
+.time-inputs input {
+width: 60px;
+padding: 6px;
+text-align: center;
+border-radius: 6px;
+border: none;
+}
+
+/* ======================== */
+/* BOUTONS TIMER */
+
+.timer-buttons {
+margin-top: 10px;
+}
+
+.timer-buttons button {
+margin: 5px;
+padding: 8px 15px;
+border-radius: 20px;
+border: none;
+cursor: pointer;
+}
+/* ======================== *//* ======================== *//* ======================== */
+/* ======================== */
+/* BOUTONS */
+.recruit-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(90deg, #00f0ff, #8a2be2);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: 0.3s;
+    box-shadow: 0 0 15px #00f0ff;
+    position: relative;
+    z-index: 10;
+}
+
+.recruit-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #00f0ff, 0 0 50px #8a2be2;
+}
+
+/* ======================== */
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 25px;
+    border-top: 1px solid #00f0ff33;
+    margin-top: 40px;
+}
+
+/* ======================== */
+/* FOND ANIMÉ NEON */
+.background-animation {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 30%, #00f0ff22, transparent 40%),
+        radial-gradient(circle at 80% 70%, #8a2be222, transparent 40%);
+    z-index: -1;
+    animation: moveBackground 15s infinite alternate;
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0% 0%, 100% 100%;
+    }
+
+    100% {
+        background-position: 50% 50%, 50% 50%;
+    }
+}
